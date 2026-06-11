@@ -96,13 +96,18 @@
             transition: background-color 0.5s ease, border-color 0.5s ease, color 0.3s ease;
         }
 
+        /* --- CODE START: BODY GLOBAL STYLES --- */
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             overflow: hidden;
             height: 100vh;
             width: 100vw;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
         }
+        /* --- CODE END: BODY GLOBAL STYLES --- */
 
         /* --- STABLE CANVAS CONTAINER FOR BACKGROUND ANIMATIONS --- */
         #bg-canvas-container {
@@ -176,7 +181,7 @@
             }
         }
 
-        /* --- PREMIUM NAVIGATION BAR --- */
+        /* --- CODE START: PREMIUM NAVIGATION BAR --- */
         header {
             position: fixed;
             top: -100px;
@@ -187,6 +192,7 @@
             z-index: 1000;
             transition: top 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        /* --- CODE END: PREMIUM NAVIGATION BAR --- */
 
         header.visible {
             top: 25px;
@@ -506,6 +512,7 @@
         }
 
         /* --- SCREEN 3: APP PANELS --- */
+        /* --- CODE START: APP VIEW RESPONSIVE GRID --- */
         .app-view {
             position: absolute;
             top: 0;
@@ -521,7 +528,10 @@
             transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
             z-index: 1;
             padding: 20px;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
+        /* --- CODE END: APP VIEW RESPONSIVE GRID --- */
 
         .app-view.active {
             opacity: 1;
@@ -530,6 +540,7 @@
             z-index: 2;
         }
 
+        /* --- CODE START: HOME SECTION RESPONSIVE LAYOUT --- */
         /* --- PREMIUM LUXURY HOME DESIGN STYLING --- */
         .home-grid-layout {
             display: flex;
@@ -542,6 +553,7 @@
             margin-top: 60px;
             z-index: 10;
         }
+        /* --- CODE END: HOME SECTION RESPONSIVE LAYOUT --- */
 
         .home-content-side {
             flex: 1;
@@ -3038,6 +3050,9 @@
             box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
         }
 
+        /* --- CODE START: RESPONSIVE MEDIA QUERIES FOR ALL SCREENS --- */
+        
+        /* TABLET RESPONSIVE BREAKPOINT (992px and below) */
         @media (max-width: 992px) {
             .certs-matrix-layout {
                 flex-direction: column;
@@ -3072,7 +3087,449 @@
             .mock-recipient-name {
                 font-size: 1.8rem;
             }
+            
+            /* HOME SECTION TABLET ADJUSTMENT */
+            .home-grid-layout {
+                flex-direction: column;
+                gap: 30px;
+                margin-top: 40px;
+                padding: 0 30px;
+            }
+            
+            .home-content-side {
+                text-align: center;
+                align-items: center;
+            }
+            
+            .home-profile-side {
+                flex: 0 0 300px;
+                scale: 0.85;
+            }
+            
+            /* ABOUT SECTION TABLET ADJUSTMENT */
+            .about-grid-layout {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0 30px;
+            }
+            
+            /* SKILLS SECTION TABLET ADJUSTMENT */
+            .skills-grid-layout {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0 30px;
+            }
+            
+            .skills-hex-side {
+                flex: 0 0 auto;
+                scale: 0.8;
+            }
+            
+            /* PROJECTS SECTION TABLET ADJUSTMENT */
+            .projects-matrix-layout {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0 30px;
+            }
+            
+            .projects-deck-side {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            
+            /* CONTACT SECTION TABLET ADJUSTMENT */
+            .contact-matrix-layout {
+                flex-direction: column;
+                gap: 30px;
+                padding: 0 30px;
+            }
+            
+            /* NAVBAR TABLET FIX */
+            header {
+                width: 90%;
+            }
+            
+            .navbar {
+                padding: 12px 20px;
+            }
+            
+            .nav-links {
+                gap: 3px;
+            }
+            
+            .nav-item a {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
         }
+        
+        /* MOBILE RESPONSIVE BREAKPOINT (768px and below) */
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+            
+            /* --- CODE START: MOBILE VIEWPORT ADJUSTMENTS --- */
+            
+            .app-view {
+                padding: 15px;
+                overflow-y: auto;
+                height: auto;
+                min-height: 100vh;
+            }
+            
+            /* GLOBAL MARGINS & PADDING MOBILE */
+            .home-grid-layout,
+            .about-grid-layout,
+            .skills-grid-layout,
+            .projects-matrix-layout,
+            .certs-matrix-layout,
+            .contact-matrix-layout {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 15px;
+                margin-top: 30px;
+            }
+            
+            /* HERO TITLE MOBILE SCALING */
+            .hero-title-main {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+            
+            .welcome-title {
+                font-size: 2.5rem;
+            }
+            
+            .skills-title-main,
+            .projects-title-main,
+            .about-title-main,
+            .contact-title-main,
+            .certs-title-main {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            /* PROFILE AVATAR MOBILE */
+            .home-profile-side {
+                flex: 0 0 auto;
+                width: 100%;
+                scale: 0.7;
+                margin-bottom: 20px;
+            }
+            
+            .profile-mesh-avatar-frame {
+                width: 260px;
+                height: 260px;
+            }
+            
+            /* HOME ACTION BUTTONS MOBILE */
+            .home-action-cluster {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+            
+            .cta-premium-btn,
+            .cta-outline-btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            
+            /* HEX SKILLS GRID MOBILE */
+            .hex-grid-viewport {
+                width: 300px;
+                height: 280px;
+                scale: 0.75;
+            }
+            
+            .hex-node {
+                width: 90px;
+                height: 110px;
+            }
+            
+            /* PROJECTS DECK MOBILE */
+            .projects-deck-side {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            
+            .deck-card-node {
+                padding: 15px;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            /* CONTACT FORM MOBILE */
+            .form-input-split-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .form-dispatch-action-row {
+                flex-direction: column-reverse;
+                gap: 12px;
+            }
+            
+            .terminal-dispatch-submit-btn {
+                width: 100%;
+            }
+            
+            /* NAVBAR MOBILE HIDE */
+            header {
+                width: 85%;
+                top: 15px;
+            }
+            
+            .navbar {
+                padding: 10px 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            
+            .nav-logo {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+            
+            .nav-links {
+                gap: 2px;
+                flex-wrap: wrap;
+            }
+            
+            .nav-item a {
+                font-size: 0.7rem;
+                padding: 5px 10px;
+            }
+            
+            /* SIDEBAR MOBILE */
+            .sidebar {
+                width: 85vw;
+                max-width: 320px;
+            }
+            
+            /* RESUME WINDOW MOBILE */
+            .glass-resume-window {
+                height: 95vh;
+                width: 98%;
+            }
+            
+            .resume-features-sidebar {
+                width: 100%;
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 1px solid var(--nav-border);
+                padding: 15px;
+                gap: 5px;
+                overflow-x: auto;
+            }
+            
+            .feature-nav-item {
+                flex: 0 0 auto;
+                white-space: nowrap;
+                font-size: 0.75rem;
+                padding: 8px 10px;
+            }
+            
+            .resume-content-viewport {
+                padding: 20px;
+            }
+            
+            .project-cards-showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-meter-matrix-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* HOLOGRAM GLASS SCALING */
+            .hologram-display-glass,
+            .diagnostic-display-glass,
+            .secure-form-terminal-glass {
+                width: 100%;
+            }
+            
+            .hologram-viewport-scroller {
+                max-height: 350px;
+                padding: 20px;
+            }
+            
+            /* FEATURE COUNTERS MOBILE */
+            .features-counter-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            /* PILLAR ROWS MOBILE */
+            .pillar-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .pillar-icon-box {
+                width: 40px;
+                height: 40px;
+            }
+            
+            /* RESUME SECTION TITLE */
+            .resume-main-title h1 {
+                font-size: 2rem;
+            }
+            
+            .resume-contact-links-box {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            /* CERT CAROUSEL MOBILE */
+            .certs-carousel-viewport {
+                height: 320px;
+            }
+            
+            .cert-glass-card {
+                width: 90vw;
+                max-width: 340px;
+                padding: 25px;
+            }
+            
+            .certs-slider-controls {
+                gap: 10px;
+            }
+            
+            .cert-nav-btn {
+                width: 48px;
+                height: 48px;
+            }
+            
+            /* MODAL MOBILE */
+            .modal-terminal-container {
+                max-width: 95%;
+            }
+            
+            .rich-mock-certificate {
+                padding: 20px;
+                border-width: 4px;
+            }
+            
+            .mock-recipient-name {
+                font-size: 1.4rem;
+            }
+            
+            .mock-cert-footer-meta-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            /* --- CODE END: MOBILE VIEWPORT ADJUSTMENTS --- */
+        }
+        
+        /* SMALL MOBILE RESPONSIVE BREAKPOINT (480px and below) */
+        @media (max-width: 480px) {
+            
+            /* --- CODE START: SMALL MOBILE EXTREME ADJUSTMENTS --- */
+            
+            .hero-title-main {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+            
+            .skills-title-main,
+            .projects-title-main,
+            .about-title-main,
+            .contact-title-main,
+            .certs-title-main {
+                font-size: 1.5rem;
+            }
+            
+            .home-action-cluster {
+                flex-direction: column;
+            }
+            
+            .cta-premium-btn,
+            .cta-outline-btn {
+                padding: 12px 24px;
+                font-size: 0.85rem;
+            }
+            
+            header {
+                width: 90%;
+            }
+            
+            .navbar {
+                padding: 10px 12px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .settings-trigger {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+            
+            .home-grid-layout,
+            .about-grid-layout,
+            .skills-grid-layout,
+            .projects-matrix-layout,
+            .certs-matrix-layout,
+            .contact-matrix-layout {
+                padding: 0 10px;
+            }
+            
+            .profile-mesh-avatar-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .hex-grid-viewport {
+                width: 240px;
+                height: 220px;
+                scale: 0.65;
+            }
+            
+            .home-profile-side {
+                scale: 0.6;
+            }
+            
+            .floating-status-badge {
+                padding: 8px 12px;
+                font-size: 0.65rem;
+            }
+            
+            .resume-main-title h1 {
+                font-size: 1.6rem;
+            }
+            
+            .cert-glass-card {
+                width: 95vw;
+                padding: 20px;
+            }
+            
+            .hologram-viewport-scroller,
+            .diagnostic-viewport-scroller {
+                max-height: 250px;
+                padding: 15px;
+            }
+            
+            .form-terminal-top-bar,
+            .hologram-top-bar,
+            .diagnostic-top-bar {
+                font-size: 0.65rem;
+            }
+            
+            /* --- CODE END: SMALL MOBILE EXTREME ADJUSTMENTS --- */
+        }
+        
+        /* --- CODE END: RESPONSIVE MEDIA QUERIES FOR ALL SCREENS --- */
 
 
         /* --- ULTRA-PREMIUM CONTACT COMMAND CONSOLE STYLING MATRIX --- */
@@ -5339,61 +5796,55 @@
 
 
         // --- SECURE CLIENT-SIDE DISPATCH & VALIDATION PIPELINE ENGINE ---
-        // PASTE THIS NEW REPLACEMENT FUNCTION:
-        function handleFormSubmission(eventToken, formNode) {
-            if (eventToken) eventToken.preventDefault();
+        // Handles the contact form submission referenced by the form onsubmit attribute
+        function handleSecureDispatch(e) {
+            e.preventDefault();
 
-            const submitBtn = formNode.querySelector('.premium-submit-btn');
-            const feedbackShield = formNode.querySelector('.dispatch-feedback-status-shield');
-            const feedbackIcon = feedbackShield.querySelector('i');
-            const statusLogString = formNode.querySelector('.status-log-string');
+            const form = document.getElementById('portfolioContactForm');
+            const name = document.getElementById('senderName');
+            const email = document.getElementById('senderEmail');
+            const message = document.getElementById('senderMessage');
+            const subject = document.getElementById('senderSubject');
 
-            if (!submitBtn || !feedbackShield) return;
+            const submitBtn = document.getElementById('submitFormBtn');
+            const feedbackBox = document.getElementById('dispatchFeedbackBox');
+            const feedbackText = document.getElementById('dispatchFeedbackText');
+            const formStatusLog = document.getElementById('formStatusLog');
 
-            // 1. Enter Computational Processing State Loops
-            submitBtn.style.pointerEvents = 'none';
-            submitBtn.style.opacity = '0.6';
+            // Basic validation
+            let valid = true;
+            if (!name.value.trim()) { document.getElementById('errorName').style.display = 'block'; valid = false; } else { document.getElementById('errorName').style.display = 'none'; }
+            if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())) { document.getElementById('errorEmail').style.display = 'block'; valid = false; } else { document.getElementById('errorEmail').style.display = 'none'; }
+            if (!message.value.trim()) { document.getElementById('errorMessage').style.display = 'block'; valid = false; } else { document.getElementById('errorMessage').style.display = 'none'; }
 
-            feedbackShield.className = "dispatch-feedback-status-shield";
-            if (feedbackIcon) feedbackIcon.className = "fa-solid fa-circle-notch fa-spin";
-            if (statusLogString) {
-                statusLogString.innerText = "TRANSMITTING_PAYLOAD // ROUTING_NETWORK_PACKETS...";
-                statusLogString.style.color = "var(--accent-color, #00f2fe)";
+            if (!valid) {
+                feedbackBox.className = 'dispatch-feedback-status-shield error';
+                feedbackText.innerText = 'VALIDATION_FAILURE // CHECK_FIELDS';
+                return;
             }
 
-            // 2. Simulated Network Infrastructure Pipeline Delay (1.6 Seconds)
+            // UI state: sending
+            submitBtn.classList.add('processing-state');
+            feedbackBox.className = 'dispatch-feedback-status-shield sending';
+            feedbackText.innerText = 'TRANSMITTING...';
+            if (formStatusLog) formStatusLog.innerText = 'SENDING_PAYLOAD...';
+
+            // Simulate async send (replace with real AJAX/fetch if backend available)
             setTimeout(() => {
-                // Clear buttons structural disabled indicators out cleanly
-                submitBtn.style.pointerEvents = 'auto';
-                submitBtn.style.opacity = '1';
+                submitBtn.classList.remove('processing-state');
+                feedbackBox.className = 'dispatch-feedback-status-shield success';
+                feedbackText.innerText = 'DISPATCH_SUCCESS // MESSAGE_SENT';
+                if (formStatusLog) formStatusLog.innerText = 'READY_FOR_COMMUNICATION_PAYLOAD...';
 
-                // Update diagnostic logger values out to success triggers
-                feedbackShield.className = "dispatch-feedback-status-shield success";
-                if (feedbackIcon) feedbackIcon.className = "fa-solid fa-circle-check";
+                // clear form
+                form.reset();
 
-                if (statusLogString) {
-                    statusLogString.innerText = "DISPATCH_SUCCESS // TRANSMISSION_COMPLETE";
-                    statusLogString.style.color = "#10b981";
-                }
-
-                // Flush text fields instantly 
-                formNode.reset();
-
-                // 3. Re-initialize state log windows cleanly after 5 seconds idle phase
+                // revert feedback after a delay
                 setTimeout(() => {
-                    feedbackShield.style.opacity = '0';
-                    setTimeout(() => {
-                        feedbackShield.className = "dispatch-feedback-status-shield";
-                        if (feedbackIcon) feedbackIcon.className = "fa-solid fa-terminal";
-                        feedbackShield.style.opacity = '1';
-                        if (statusLogString) {
-                            statusLogString.innerText = "READY_FOR_COMMUNICATION_PAYLOAD...";
-                            statusLogString.style.color = "var(--accent-color, #00f2fe)";
-                        }
-                    }, 300);
-                }, 5000);
-
-            }, 1600);
+                    feedbackBox.className = 'dispatch-feedback-status-shield';
+                    feedbackText.innerText = 'TRANSMITTING...';
+                }, 4000);
+            }, 1400);
         }
     </script>
 </body>
